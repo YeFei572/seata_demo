@@ -1,0 +1,36 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: president-order
+  datasource:
+    ds0:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://106.52.117.128:3308/order?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+      username: root
+      password: mysql4zhourunbin
+      type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 20971520
+      max-request-size: 20971520
+  rabbitmq:
+    addresses: 106.52.117.128
+    username: admin
+    password: keppel
+    port: 5672
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+mq:
+  exchangePayment: com.outsource.exchange.payment
+  queuePayment: com.outsource.queue.payment
+  routeKeyPayment: com.outsource.routeKey.payment

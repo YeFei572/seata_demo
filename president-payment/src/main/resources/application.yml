@@ -1,0 +1,37 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: president-payment
+  datasource:
+    ds0:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://106.52.117.128:3308/payment?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+      username: root
+      password: mysql4zhourunbin
+      type: com.alibaba.druid.pool.DruidDataSource
+    jpa:
+      database-platform: org.hibernate.dialect.MySQLDialect
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    servlet:
+      multipart:
+        max-file-size: 20971520
+        max-request-size: 20971520
+  rabbitmq:
+    host: 47.106.34.56
+    username: keppel
+    password: keppel
+    port: 5672
+    virtual-host: payment01
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+mq:
+  exchangePayment: com.outsource.exchange.payment
+  queuePayment: com.outsource.queue.payment
+  routeKeyPayment: com.outsource.routeKey.payment

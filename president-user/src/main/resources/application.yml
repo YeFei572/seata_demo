@@ -1,0 +1,21 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: president-user
+  rabbitmq:
+    addresses: 106.52.117.128
+    username: admin
+    password: keppel
+    port: 5672
+    virtual-host: my_vhost
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+mq:
+  exchangePayment: com.outsource.exchange.payment
+  queuePayment: com.outsource.queue.payment
+  routeKeyPayment: com.outsource.routeKey.payment

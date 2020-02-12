@@ -9,7 +9,22 @@ spring:
     password: keppel
     port: 5672
     virtual-host: my_vhost
-
+  datasource:
+    ds0:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://106.52.117.128:3308/user?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+      username: root
+      password: mysql4zhourunbin
+      type: com.alibaba.druid.pool.DruidDataSource
+    jpa:
+      database-platform: org.hibernate.dialect.MySQLDialect
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    servlet:
+      multipart:
+        max-file-size: 20971520
+        max-request-size: 20971520
 eureka:
   client:
     service-url:
